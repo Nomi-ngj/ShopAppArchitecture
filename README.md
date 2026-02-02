@@ -190,7 +190,7 @@ UI Layer       -> ViewControllers / SwiftUI Views
      ┌─────────────────────────┐
      │      Modules SPM        │
      │ Products / Orders / Auth│
-     └───────────┬────────────┘
+     └───────────┬─────────────┘
                  │
                  ▼
         ┌─────────────────┐
