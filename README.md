@@ -4,11 +4,14 @@
 
 The Zabehaty Shops App is built using a **modular architecture with Swift Package Manager (SPM)**. This structure ensures:
 
-* Clean separation of concerns
-* Scalable feature modules (Products, Orders, Auth, etc.)
-* Easy unit and integration testing
-* Safe concurrency with `@MainActor` and `Sendable`
-* Maintainable and extensible codebase
+* **Scalability:** Easily add 50–100 feature modules
+* **Testability:** Unit, integration, and mock testing
+* **Separation of concerns:** Clear layers for UI, domain, network, and shared utilities
+* **Concurrency safety:** `@MainActor` and `Sendable` types
+* **Scalable feature modules:** (Products, Orders, Auth, etc.)
+* **Modern iOS development:** iOS 15+, Xcode 26, Swift 6, Portrait-only support
+
+The app uses **MVVM architecture** with **dependency injection** and follows clean modular design principles.
 
 ---
 
@@ -29,6 +32,30 @@ The Zabehaty Shops App is built using a **modular architecture with Swift Packag
 * Provide shared functionality to all modules
 * Avoid code duplication in features
 * Support app-wide configuration and utilities
+
+## Project Structure
+
+```
+ZabehatyShopsApp/
+ ├─ AppFoundation/        # SPM: Shared helpers, extensions, utilities
+ ├─ Domain/               # SPM: Feature models, enums, requests/responses
+ ├─ NetworkCore/          # SPM: Moya ProviderFactory, Logger, Async extensions
+ ├─ Modules/              # SPM: Feature modules (Products, Orders, Auth)
+ │    └─ ProductsModule/
+ │         ├─ Source/
+ │         │    ├─ Provider/Service/Target
+ │         │    ├─ ViewModel/Protocol
+ │         │    └─ View/
+ │         └─ Tests/
+ │              ├─ Mock ViewModels
+ │              ├─ Unit Tests
+ │              └─ Service Tests
+ ├─ ZabehatyShopsApp/     # Main app target
+ │    ├─ Info.plist
+ │    ├─ Assets.xcassets
+ │    └─ LaunchScreen.storyboard / SwiftUI Launch View
+ └─ Tests/                # App-wide tests
+```
 
 ---
 
